@@ -1,4 +1,3 @@
-#code is incomplete this is just a backup
 from pybricks.hubs import PrimeHub
 from pybricks.parameters import Direction, Port, Stop
 from pybricks.pupdevices import ColorSensor, Motor
@@ -23,7 +22,20 @@ db.straight(425)
 amBl.run_angle(1000, 465)
 db.straight(-45)
 amBl.run_angle(1000, 45)
-db.straight(25)
-amBl.run_angle(1000, -500)
+db.straight(20)
+amBl.run_angle(500, -500)
 db.straight(-100)
 db.turn(45, absolute=True)
+db.straight(375)
+db.turn(-90)
+db.straight(350)
+amFr.run_angle(1000, 300)
+db.straight(-50)
+amFr.run_angle(25, -50)
+wait(550)
+amFr.run_angle(25, 50)
+db.straight(50)
+amFr.run_angle(1000, -300)
+db.straight(-170)
+db.turn(45)
+db.straight(-600)
