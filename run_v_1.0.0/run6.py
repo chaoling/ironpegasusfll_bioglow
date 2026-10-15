@@ -13,7 +13,6 @@ db = DriveBase(dma, dme, 62.4, 148)
 csCl = ColorSensor(Port.C)
 csDr = ColorSensor(Port.D)
 
-
 # The main program starts here.
 db.use_gyro(True)
 db.settings(straight_speed=1080)
