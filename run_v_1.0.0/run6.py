@@ -10,8 +10,8 @@ amfr = Motor(Port.F, Direction.CLOCKWISE)
 dma = Motor(Port.A, Direction.COUNTERCLOCKWISE)
 dme = Motor(Port.E, Direction.CLOCKWISE)
 db = DriveBase(dma, dme, 62.4, 148)
-color_sensor = ColorSensor(Port.C)
-color_sensor_2 = ColorSensor(Port.D)
+csCl = ColorSensor(Port.C)
+csDr = ColorSensor(Port.D)
 
 
 # The main program starts here.
