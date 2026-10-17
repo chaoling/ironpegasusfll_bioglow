@@ -1,17 +1,10 @@
-from pybricks.hubs import PrimeHub
-from pybricks.parameters import Direction, Port, Stop
-from pybricks.pupdevices import ColorSensor, Motor
-from pybricks.robotics import DriveBase
+from robot_config import RobotConfig
 
 # Set up.
-prime_hub = PrimeHub()
-amBl = Motor(Port.B, Direction.COUNTERCLOCKWISE)
-amFr = Motor(Port.F, Direction.CLOCKWISE)
-dmA = Motor(Port.A, Direction.COUNTERCLOCKWISE)
-dmE = Motor(Port.E, Direction.CLOCKWISE)
-db = DriveBase(dmA, dmE, 62.4, 148)
-csCl = ColorSensor(Port.C)
-csDr = ColorSensor(Port.D)
+robot = RobotConfig()
+db = robot.drive_base
+amBl = robot.back_attachment_motor
+amFr = robot.front_attachment_motor
 
 # The main program starts here.
 db.settings(straight_speed=1080)
