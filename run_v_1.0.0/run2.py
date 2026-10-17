@@ -8,7 +8,7 @@ amFr = robot.front_attachment_motor
 # The main program starts here.
 db.use_gyro(True)
 db.settings(straight_speed=300)
-db.settings(turn_rate=960)
+db.settings(turn_rate=800)
 db.settings(turn_acceleration=450)
 db.turn(-3, absolute=True)
 db.straight(590)
