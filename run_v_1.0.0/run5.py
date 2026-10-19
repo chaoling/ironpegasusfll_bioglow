@@ -1,4 +1,4 @@
-#This run is incomplete due to the lack of a certain piece
+#imcomplete run just a backup
 from pybricks.hubs import PrimeHub
 from pybricks.parameters import Direction, Port, Stop
 from pybricks.pupdevices import ColorSensor, Motor
