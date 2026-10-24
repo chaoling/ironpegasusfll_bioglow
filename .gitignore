@@ -1,5 +1,74 @@
-**/__pycache__/
-.DS_Store
+# ---- Secrets & environment ----
 .env
-*.env
 .env.*
+!.env.example
+*.pem
+*.key
+secrets.*
+credentials.json
+
+# ---- OS files ----
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+
+# ---- Editors & IDEs ----
+.vscode/
+.idea/
+*.sublime-workspace
+*.code-workspace
+
+# ---- Logs & temp ----
+*.log
+logs/
+tmp/
+temp/
+*.tmp
+*.bak
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.ipynb_checkpoints/
+
+# ---- Node / JS ----
+node_modules/
+npm-debug.log*
+yarn-error.log*
+.next/
+.nuxt/
+.cache/
+coverage/
+
+# ---- Compiled / binaries ----
+*.o
+*.so
+*.dll
+*.exe
+*.class
+*.jar
+
+# ---- Databases & local data ----
+*.sqlite
+*.sqlite3
+*.db
+
+# ---- Docker / infra ----
+.terraform/
+*.tfstate
+*.tfstate.*
