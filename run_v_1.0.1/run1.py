@@ -2,7 +2,7 @@ from pybricks.hubs import PrimeHub
 from pybricks.parameters import Direction, Port, Stop
 from pybricks.pupdevices import ColorSensor, Motor
 from pybricks.robotics import DriveBase
-from pybricks.tools import wait, StopWatch
+from pybricks.tools import multitask, wait, StopWatch, run_task
 prime_hub = PrimeHub()
 dmA = Motor(Port.A, Direction.COUNTERCLOCKWISE)
 dmE = Motor(Port.E, Direction.CLOCKWISE)
