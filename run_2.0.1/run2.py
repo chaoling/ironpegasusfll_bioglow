@@ -1,5 +1,5 @@
-from pybricks.parameters import Direction, Port, Stop, Color, Button
-from pybricks.tools import multitask, wait, StopWatch, run_task
+from pybricks.robotics import DriveBase
+from pybricks.tools import wait, StopWatch, hub_menu, multitask
 
 def run2(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr):
     db.use_gyro(True)
@@ -10,7 +10,7 @@ def run2(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr):
     db.straight(590)
     db.settings(straight_acceleration=450)
     db.turn(-15, absolute=True)
-    db.straight(100)
+    db.straight(90)
     db.turn(-54, absolute=True)
     db.settings(straight_speed=1080)
     db.turn(0, absolute=True)

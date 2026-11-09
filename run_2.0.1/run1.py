@@ -17,7 +17,7 @@ def run1(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr):
     db.turn(60, absolute=True)
     db.straight(255)
     db.turn(-88)
-    db.straight(400)
+    db.straight(410)
     amFr.run_angle(500, 270)
     amFr.run_angle(50, 45)
     wait(150)
