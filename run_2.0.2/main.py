@@ -1,8 +1,8 @@
 from pybricks.hubs import PrimeHub
-from pybricks.parameters import Direction, Port, Stop, Color, Button
+from pybricks.parameters import Direction, Port, Color, Button
 from pybricks.pupdevices import ColorSensor, Motor
 from pybricks.robotics import DriveBase
-from pybricks.tools import multitask, wait, StopWatch, run_task
+from pybricks.tools import wait
 from run1 import run1
 from run2 import run2
 from run3 import run3
@@ -12,6 +12,7 @@ from run6 import run6
 from run7 import run7
 from run8 import run8
 from run9 import run9
+
 prime_hub = PrimeHub()
 dmA = Motor(Port.A, Direction.COUNTERCLOCKWISE)
 dmE = Motor(Port.E, Direction.CLOCKWISE)
@@ -21,72 +22,71 @@ amFr = Motor(Port.F, Direction.CLOCKWISE)
 csCl = ColorSensor(Port.C)
 csDr = ColorSensor(Port.D)
 
-# The main program starts here.
-"""
-Assign values for colors
-red = 0
-yellow = 1
-green = 2
-blue = 3
-magenta = 4
-
-Assign Values for runs
-       L,R
-run1 = 0,0
-run2 = 0,1
-run3 = 0,2
-run4 = 0,3
-run5 = 0,4
-run6 = 1,0
-run7 = 1,1
-run8 = 1,2
-run9 = 1,3
-"""
-
 prime_hub.system.set_stop_button(Button.BLUETOOTH)
+
+RUNS = {
+    (Color.RED, Color.RED): (1, run1),
+    (Color.RED, Color.YELLOW): (2, run2),
+    (Color.RED, Color.GREEN): (3, run3),
+    (Color.YELLOW, Color.YELLOW): (4, run4),
+    (Color.YELLOW, Color.GREEN): (5, run5),
+    (Color.YELLOW, Color.BLUE): (6, run6),
+    (Color.YELLOW, Color.MAGENTA): (7, run7),
+    (Color.GREEN, Color.GREEN): (8, run8),
+    (Color.GREEN, Color.BLUE): (9, run9),
+}
+
+
+def read_run_selection():
+    """Return a run selection only when both sensors show a known pair."""
+    return RUNS.get((csCl.color(), csDr.color()))
+
+
+def wait_for_stable_selection():
+    """Require the same valid sensor pair for three consecutive reads."""
+    previous = None
+    stable_count = 0
+
+    while True:
+        selection = read_run_selection()
+        if selection is None:
+            previous = None
+            stable_count = 0
+            prime_hub.display.char("-")
+        elif selection == previous:
+            stable_count += 1
+            if stable_count >= 3:
+                return selection
+        else:
+            previous = selection
+            stable_count = 1
+
+        wait(50)
+
+
+def wait_for_center_press():
+    while Button.CENTER not in prime_hub.buttons.pressed():
+        wait(10)
+
+    # Release the button before starting the run so it cannot trigger again.
+    while Button.CENTER in prime_hub.buttons.pressed():
+        wait(10)
+
+
+def wait_for_imu():
+    prime_hub.display.char("G")
+    while not prime_hub.imu.ready():
+        wait(100)
+
+
 while True:
-    if csCl.color() == Color.RED and csDr.color() == Color.RED: #00, 1
-        while not Button.CENTER in prime_hub.buttons.pressed():
-            wait(0)
-        prime_hub.display.number(01)
-        run1(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr)
-    elif csCl.color() == Color.RED and csDr.color() == Color.YELLOW: #01, 2
-        while not Button.CENTER in prime_hub.buttons.pressed():
-            wait(0)
-        prime_hub.display.number(02)
-        run2(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr)
-    elif csCl.color() == Color.RED and csDr.color() == Color.GREEN: #02, 3
-        while not Button.CENTER in prime_hub.buttons.pressed():
-            wait(0)
-        prime_hub.display.number(03)
-        run3(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr)
-    elif csCl.color() == Color.YELLOW and csDr.color() == Color.YELLOW: #11, 4
-        while not Button.CENTER in prime_hub.buttons.pressed():
-            wait(0)
-        prime_hub.display.number(04)
-        run4(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr)
-    elif csCl.color() == Color.YELLOW and csDr.color() == Color.GREEN: #12, 5
-        while not Button.CENTER in prime_hub.buttons.pressed():
-            wait(0)
-        prime_hub.display.number(05)
-        run5(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr)
-    elif csCl.color() == Color.YELLOW and csDr.color() == Color.BLUE: #13, 6
-        while not Button.CENTER in prime_hub.buttons.pressed():
-            wait(0)
-        prime_hub.display.number(06)
-        run6(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr)
-    elif csCl.color() == Color.YELLOW and csDr.color() == Color.MAGENTA: #14, 7
-        while not Button.CENTER in prime_hub.buttons.pressed():
-            wait(0)
-        prime_hub.display.number(07)
-        run7(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr)
-    elif csCl.color() == Color.GREEN and csDr.color() == Color.GREEN: #22, 8
-        while not Button.CENTER in prime_hub.buttons.pressed():
-            wait(0)
-        prime_hub.display.number(08)
-        run8(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr)
-    elif csCl.color() == Color.GREEN and csDr.color() == Color.BLUE: #23, 9
-        while not Button.CENTER in prime_hub.buttons.pressed():
-            wait(0)
-        prime_hub.display.number(09)
-        run9(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr)
+    run_number, run_function = wait_for_stable_selection()
+    prime_hub.display.number(run_number)
+    wait_for_center_press()
+
+    if run_number != 9:
+        wait_for_imu()
+
+    run_function(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr)
+    db.stop()
+    db.use_gyro(False)
