@@ -15,7 +15,12 @@ from run9 import run9
 prime_hub = PrimeHub()
 dmA = Motor(Port.A, Direction.COUNTERCLOCKWISE)
 dmE = Motor(Port.E, Direction.CLOCKWISE)
-db = DriveBase(dmA, dmE, 62.4, 148)
+db = DriveBase(
+    left_motor=dmA,
+    right_motor=dmE,
+    wheel_diameter=62.4,
+    axle_track=148,
+)
 amBl = Motor(Port.B, Direction.COUNTERCLOCKWISE)
 amFr = Motor(Port.F, Direction.CLOCKWISE)
 csCl = ColorSensor(Port.C)
@@ -44,14 +49,28 @@ def wait_for_imu(hub):
         wait(100)
 
 
-def run_selected(selected):
+def prepare_run(selected):
     if selected in GYRO_RUNS:
         wait_for_imu(prime_hub)
         db.use_gyro(True)
     else:
         db.use_gyro(False)
 
-    RUNS[selected](prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr)
+    db.reset(distance=0, angle=0)
+
+
+def run_selected(selected):
+    prepare_run(selected)
+    RUNS[selected](
+        prime_hub=prime_hub,
+        dmA=dmA,
+        dmE=dmE,
+        db=db,
+        amBl=amBl,
+        amFr=amFr,
+        csCl=csCl,
+        csDr=csDr,
+    )
     db.stop()
     db.use_gyro(False)
 

@@ -16,7 +16,12 @@ from run9 import run9
 prime_hub = PrimeHub()
 dmA = Motor(Port.A, Direction.COUNTERCLOCKWISE)
 dmE = Motor(Port.E, Direction.CLOCKWISE)
-db = DriveBase(dmA, dmE, 62.4, 148)
+db = DriveBase(
+    left_motor=dmA,
+    right_motor=dmE,
+    wheel_diameter=62.4,
+    axle_track=148,
+)
 amBl = Motor(Port.B, Direction.COUNTERCLOCKWISE)
 amFr = Motor(Port.F, Direction.CLOCKWISE)
 csCl = ColorSensor(Port.C)
@@ -35,6 +40,7 @@ RUNS = {
     (Color.GREEN, Color.GREEN): (8, run8),
     (Color.GREEN, Color.BLUE): (9, run9),
 }
+GYRO_RUNS = {1, 2, 3, 4, 5, 6, 7, 8}
 
 
 def read_run_selection():
@@ -79,14 +85,32 @@ def wait_for_imu():
         wait(100)
 
 
+def prepare_run(run_number):
+    """Reset state so each run starts from a known drive-base reference."""
+    if run_number in GYRO_RUNS:
+        wait_for_imu()
+        db.use_gyro(True)
+    else:
+        db.use_gyro(False)
+
+    db.reset(distance=0, angle=0)
+
+
 while True:
     run_number, run_function = wait_for_stable_selection()
     prime_hub.display.number(run_number)
     wait_for_center_press()
 
-    if run_number != 9:
-        wait_for_imu()
-
-    run_function(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr)
+    prepare_run(run_number)
+    run_function(
+        prime_hub=prime_hub,
+        dmA=dmA,
+        dmE=dmE,
+        db=db,
+        amBl=amBl,
+        amFr=amFr,
+        csCl=csCl,
+        csDr=csDr,
+    )
     db.stop()
     db.use_gyro(False)
