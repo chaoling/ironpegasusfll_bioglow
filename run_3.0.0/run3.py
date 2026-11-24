@@ -21,6 +21,7 @@ def run3(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr):
     db.settings(straight_acceleration=450)
     db.settings(turn_rate=800)
     db.settings(turn_acceleration=450)
+
     db.turn(-3)
     db.straight(410)
 
@@ -31,20 +32,23 @@ def run3(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr):
     # Raise the support
     db.turn(50)
     db.settings(straight_speed=150)
-    db.straight(72)
+    db.straight(65)
     db.turn(26)
     
     # Get ready to drop the keystone species
     db.settings(straight_speed=1080)
-    db.straight(-100)
-    db.turn(-23)
-    db.straight(150)
+    db.straight(-80)
+    db.turn(-27)
+    db.straight(160)
 
-    amBl.run_angle(130, 130)
-    amBl.run_angle(100, -130)
+    # Drop the keystone species
+    amBl.run_angle(130, 90)
 
-    db.straight(-100)
-    db.turn(-45)
+    amBl.run_angle(100, -120)
+
+    # Back to launch area
+    db.straight(-120)
+    db.turn(-43)
     db.straight(-650)
 
 
