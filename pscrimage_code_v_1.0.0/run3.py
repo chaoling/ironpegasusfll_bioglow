@@ -15,12 +15,6 @@ csCl = ColorSensor(Port.C)
 csDr = ColorSensor(Port.D)
 
 def run5(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr):
-    async def turn_arm():
-        await multitask(
-            amBl.run_angle(1000, 300),
-            db.straight(450),
-        )
-
     db.use_gyro(True)
     db.settings(straight_speed=1080)
     db.settings(turn_rate=800)
