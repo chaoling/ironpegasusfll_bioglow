@@ -1,5 +1,5 @@
 # new attachment for biocentric architecture
-#  Finish the mission from side.
+# Finish the mission from side.
 from pybricks.hubs import PrimeHub
 from pybricks.parameters import Direction, Port, Stop
 from pybricks.pupdevices import ColorSensor, Motor
