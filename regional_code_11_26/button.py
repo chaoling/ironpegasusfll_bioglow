@@ -9,9 +9,6 @@ from run3 import run3
 from run4 import run4
 from run5 import run5
 from run6 import run6
-from run7 import run7
-from run8 import run8
-from run9 import run9
 
 prime_hub = PrimeHub()
 
