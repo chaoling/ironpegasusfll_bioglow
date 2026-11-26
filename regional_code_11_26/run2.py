@@ -18,12 +18,14 @@ def run2(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr):
     db.settings(turn_rate=800)
     db.settings(turn_acceleration=450)
     safe_turn(db, -3, absolute=True)
+#=== Lift Drone Survey Drone ===================================================
     db.straight(590)
     db.settings(straight_speed=1080)
     safe_turn(db, 0, absolute=True)
     db.straight(-580)
     db.arc(-120, angle=48)
     db.straight(338)
+#=== Take see from Exploding Seeds =============================================
     amBl.run_angle(1000, 270)
     db.straight(-200)
     safe_turn(db, 15, absolute=False)
