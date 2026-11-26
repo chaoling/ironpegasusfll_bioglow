@@ -17,10 +17,6 @@ def run4(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr):
     wait(10)
     db.straight(-10)
     amFr.run_angle(1000, 200)
-    """db.straight(-80)
-    db.turn(25)
-    amFr.run_angle(1000, -400)
-    db.straight(-800)"""
 
 if __name__ == "__main__":
     from pybricks.hubs import PrimeHub
