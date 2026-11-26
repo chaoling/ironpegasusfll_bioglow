@@ -4,6 +4,7 @@ from pybricks.tools import multitask, wait, StopWatch, run_task
 def run6(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr):
     db.settings(straight_speed=1080)
     db.straight(290)
+#=== Deposit Seeds =============================================================
     amBl.run_angle(500, 200)
     amBl.run_angle(500, -200)
     db.straight(-250)
