@@ -14,7 +14,7 @@ amFr = Motor(Port.F, Direction.CLOCKWISE)
 csCl = ColorSensor(Port.C)
 csDr = ColorSensor(Port.D)
 
-def run5(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr):
+def run3(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr):
     db.use_gyro(True)
     db.settings(straight_speed=1080)
     db.settings(turn_rate=800)
@@ -55,4 +55,4 @@ if __name__ == "__main__":
     amFr = Motor(Port.F, Direction.CLOCKWISE)
     csCl = ColorSensor(Port.C)
     csDr = ColorSensor(Port.D)
-    run5(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr)
+    run3(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr)
