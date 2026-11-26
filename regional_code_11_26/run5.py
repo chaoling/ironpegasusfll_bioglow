@@ -1,6 +1,3 @@
-# Run for Forest Elder and keystone species
-# Alignment - cornor of Founder Edition
-
 from pybricks.tools import wait
 
 def safe_turn(db, angle, absolute=True):
