@@ -1,5 +1,5 @@
-# new attachment for biocentric architecture
-#  Finish the mission from side.
+# New attachment for biocentric architecture
+# Finish the biocentric architecture mission from side.
 from pybricks.parameters import Direction, Port, Stop, Color, Button
 from pybricks.tools import multitask, wait, StopWatch, run_task
 
