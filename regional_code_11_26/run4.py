@@ -6,16 +6,19 @@ def run4(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr):
     db.settings(straight_speed=1080)
     db.settings(turn_rate=803)
     db.straight(770)
+#=== Lift up Fungus ============================================================
     amBl.run_angle(700, -550)
     db.straight(-83)
     db.turn(-88)
     db.straight(320)
-    db.settings(straight_speed=90)
     db.turn(135)
+#=== Lower speed and push Leafcutter Ant to Nest ===============================
+    db.settings(straight_speed=90)
     db.straight(290)
     db.settings(straight_speed=1080)
     db.straight(-80)
     db.turn(93)
+#=== Push down Root Cover and return to Right Launch Area ======================
     db.straight(800)
     db.turn(45)
     db.straight(250)
