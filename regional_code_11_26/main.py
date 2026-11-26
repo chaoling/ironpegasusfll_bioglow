@@ -9,9 +9,7 @@ from run3 import run3
 from run4 import run4
 from run5 import run5
 from run6 import run6
-from run7 import run7
-from run8 import run8
-from run9 import run9
+
 prime_hub = PrimeHub()
 dmA = Motor(Port.A, Direction.COUNTERCLOCKWISE)
 dmE = Motor(Port.E, Direction.CLOCKWISE)
@@ -38,9 +36,6 @@ run3 = 0,2
 run4 = 0,3
 run5 = 0,4
 run6 = 1,0
-run7 = 1,1
-run8 = 1,2
-run9 = 1,3
 """
 
 prime_hub.system.set_stop_button(Button.BLUETOOTH)
@@ -75,18 +70,3 @@ while True:
             wait(0)
         prime_hub.display.number(06)
         run6(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr)
-    elif csCl.color() == Color.YELLOW and csDr.color() == Color.MAGENTA: #14, 7
-        while not Button.CENTER in prime_hub.buttons.pressed():
-            wait(0)
-        prime_hub.display.number(07)
-        run7(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr)
-    elif csCl.color() == Color.GREEN and csDr.color() == Color.GREEN: #22, 8
-        while not Button.CENTER in prime_hub.buttons.pressed():
-            wait(0)
-        prime_hub.display.number(08)
-        run8(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr)
-    elif csCl.color() == Color.GREEN and csDr.color() == Color.BLUE: #23, 9
-        while not Button.CENTER in prime_hub.buttons.pressed():
-            wait(0)
-        prime_hub.display.number(09)
-        run9(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr)
