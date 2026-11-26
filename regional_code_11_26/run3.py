@@ -20,17 +20,14 @@ def run3(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr):
     db.settings(turn_rate=800)
     db.settings(straight_acceleration=450)
     db.settings(turn_acceleration=450)
-
     run_task(turn_arm2())
     db.turn(-45)
     db.straight(310)
     db.turn(-45)
-
-    # Push nesting platform and compost hatch
+    #=== Lift Nesting Canopy and open Compost ==================================
     db.settings(straight_speed=480)
     db.straight(99)
-
-    # Push the skylight in
+    #=== Push in Skylight ======================================================
     amBl.run_angle(1800, -930)
     db.straight(-110)
     db.settings(straight_speed=1080)
@@ -38,13 +35,11 @@ def run3(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr):
     db.straight(-50)
     db.turn(24)
     db.straight(250)
-
-    # Get the seed from window to the past
+    #=== Collect Window to the Past Seed =======================================
     run_task(turn_arm())
     db.straight(50)
     amFr.run_angle(1800,-130)
-
-    # Back to the base
+    #=== Go to Right Launch Area ======================================================
     db.straight(-20)
     db.turn(40)
     db.straight(680)

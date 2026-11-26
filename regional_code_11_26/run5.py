@@ -21,32 +21,24 @@ def run5(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr):
     db.settings(straight_acceleration=450)
     db.settings(turn_rate=800)
     db.settings(turn_acceleration=450)
-
     db.turn(-3)
     db.straight(410)
-
-    # Change the speed slow so we can get the seed
+    #=== Lower speed and get Forest Elder seed =================================
     db.settings(straight_speed=150)
     db.straight(110)
-    
-    # Raise the support
+    #=== Raise Cane on Forest Elder ============================================
     db.turn(50)
     db.settings(straight_speed=150)
     db.straight(65)
     db.turn(26)
-    
-    # Get ready to drop the keystone species
     db.settings(straight_speed=1080)
     db.straight(-80)
     db.turn(-27)
     db.straight(160)
-
-    # Drop the keystone species
+    #=== Drop Keystone Species =================================================
     amBl.run_angle(130, 90)
-
     amBl.run_angle(100, -120)
-
-    # Back to launch area
+    #=== Go back to Right Launch Area
     db.straight(-120)
     db.turn(-43)
     db.straight(-650)
