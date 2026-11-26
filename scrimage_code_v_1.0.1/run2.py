@@ -19,13 +19,6 @@ def run2(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr):
     db.settings(turn_acceleration=450)
     safe_turn(db, -3, absolute=True)
     db.straight(590)
-    """db.settings(straight_acceleration=450)
-    safe_turn(db, -15, absolute=True)
-    db.straight(90)
-    safe_turn(db, -54, absolute=True)
-    db.settings(straight_speed=1080)
-    safe_turn(db, 0, absolute=True)
-    db.straight(-600)"""
     db.settings(straight_speed=1080)
     safe_turn(db, 0, absolute=True)
     db.straight(-580)
