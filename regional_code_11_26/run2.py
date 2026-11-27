@@ -24,8 +24,8 @@ def run2(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr):
     safe_turn(db, 0, absolute=True)
     db.straight(-580)
     db.arc(-120, angle=48)
-    db.straight(390)
-#=== Take see from Exploding Seeds =============================================
+    db.straight(338)
+#=== Take seed from Exploding Seeds =============================================
     amBl.run_angle(1000, 270)
     db.straight(-500)
 
