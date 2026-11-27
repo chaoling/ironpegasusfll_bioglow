@@ -1,7 +1,6 @@
 from pybricks.tools import wait
 
-def safe_turn(angle, absolute=False):
-    db = DriveBase(dmA, dmE, 62.4, 148)
+def safe_turn(db, angle, absolute=False):
     db.turn(angle, absolute=absolute, wait=False)
 
     while not db.done():
@@ -19,13 +18,13 @@ def run2(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr):
     db.settings(turn_rate=800)
     db.settings(turn_acceleration=450)
     db.straight(10)
-    safe_turn(46)
+    safe_turn(db, 46)
     db.straight(430)
 #=== Take seed from Exploding Seeds =============================================
     amBl.run_angle(1000, 265)
     db.settings(straight_speed=900)
     db.straight(-420)
-    safe_turn(44)
+    safe_turn(db, 44)
 #=== Lower speed and lift Drone Survey Drone ====================================
     db.settings(straight_speed=350)
     db.straight(550)
