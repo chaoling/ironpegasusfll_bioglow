@@ -26,7 +26,7 @@ def run2(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr):
     db.settings(straight_speed=900)
     db.straight(-420)
     safe_turn(44)
-#=== Lower speed and lift Drone Survey Drone ===================================================
+#=== Lower speed and lift Drone Survey Drone ====================================
     db.settings(straight_speed=350)
     db.straight(550)
     db.settings(straight_speed=1080)
