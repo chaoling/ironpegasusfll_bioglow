@@ -48,12 +48,12 @@ def run1_backup(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr):
     db.straight(415)
     wait(200)
 #=== Extend roots on Reaching Roots ============================================
-    amBl.run_angle(500, 80)
-    amBl.run_angle(500, -70)
+    amBl.run_angle(500, 100)
+    amBl.run_angle(500, -90)
     amBl.run_angle(1800, 200)
     db.straight(-300)
     db.turn(55)
-    db.straight(350)
+    db.straight(360)
 #=== Lower arm to do Tangled ===================================================
     amBl.run_angle(500, -200)
     db.turn(-55)
