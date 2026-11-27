@@ -1,7 +1,7 @@
 from pybricks.tools import wait
 
 def safe_turn(angle, absolute=False):
-    global db
+    db = DriveBase(dmA, dmE, 62.4, 148)
     db.turn(angle, absolute=absolute, wait=False)
 
     while not db.done():

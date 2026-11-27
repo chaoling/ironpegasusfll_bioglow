@@ -45,17 +45,16 @@ def run1_backup(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr):
     db.turn(-60)
 #=== Lower arm to do Reaching Roots ============================================
     amBl.run_angle(700, -150)
-    db.straight(415)
-    wait(200)
+    db.straight(410)
 #=== Extend roots on Reaching Roots ============================================
-    amBl.run_angle(500, 100)
-    amBl.run_angle(500, -90)
+    amBl.run_angle(500, 130)
+    amBl.run_angle(500, -100)
     amBl.run_angle(1800, 200)
-    db.straight(-300)
+    db.straight(-295)
     db.turn(55)
-    db.straight(360)
+    db.straight(375)
 #=== Lower arm to do Tangled ===================================================
-    amBl.run_angle(500, -200)
+    amBl.run_angle(500, -180)
     db.turn(-55)
     db.straight(85)
 #=== Lift the Vine off the Tree ================================================
