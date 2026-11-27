@@ -24,8 +24,8 @@ def run2(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr):
 #=== Take seed from Exploding Seeds =============================================
     amBl.run_angle(1000, 265)
     db.settings(straight_speed=900)
-    db.straight(-425)
-    safe_turn(39)
+    db.straight(-420)
+    safe_turn(44)
 #=== Lower speed and lift Drone Survey Drone ===================================================
     db.settings(straight_speed=350)
     db.straight(550)
