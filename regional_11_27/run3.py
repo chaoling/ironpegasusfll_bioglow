@@ -7,7 +7,7 @@ from pybricks.tools import multitask, wait, StopWatch, run_task
 def run3(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr):
     async def turn_arm():
         await multitask(
-            amBl.run_angle(1800, 930),
+            amBl.run_angle(1800, 600), #930 originall
             amFr.run_angle(1800,760),
         )
     async def turn_arm2():
@@ -26,10 +26,10 @@ def run3(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr):
     db.straight(310)
     db.turn(-45)
     #=== Lift Nesting Canopy and open Compost ==================================
-    db.settings(straight_speed=480)
+    db.settings(straight_speed=700)
     db.straight(99)
     #=== Push in Skylight ======================================================
-    amBl.run_angle(1800, -930)
+    amBl.run_angle(1000, -930)
     db.straight(-110)
     db.settings(straight_speed=1080)
     db.turn(45)
@@ -41,9 +41,9 @@ def run3(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr):
     db.straight(50)
     amFr.run_angle(1800,-130)
     #=== Go to Right Launch Area ======================================================
-    db.straight(-20)
+    db.straight(-35)
     db.turn(40)
-    db.straight(680)
+    db.straight(700)
 
 if __name__ == "__main__":
     from pybricks.hubs import PrimeHub

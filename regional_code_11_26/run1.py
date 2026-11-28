@@ -77,4 +77,4 @@ if __name__ == "__main__":
     amFr = Motor(Port.F, Direction.CLOCKWISE)
     csCl = ColorSensor(Port.C)
     csDr = ColorSensor(Port.D)
-    run2(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr)
+    run1(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr)

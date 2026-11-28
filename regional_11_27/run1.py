@@ -3,28 +3,33 @@ from pybricks.tools import multitask, wait, StopWatch, run_task
 
 def run1(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr):
     db.use_gyro(True)
-    db.settings(straight_speed=200)
+    db.settings(straight_speed=1080)
     db.settings(turn_rate=800)
     db.settings(turn_acceleration=450)
     db.straight(300)
     db.straight(-200)
+    #=== Push down Research Flag on Flip the Rock ==================================
     db.settings(straight_speed=1080)
     db.turn(60)
     db.straight(292)
     db.turn(-60)
     amBl.run_angle(700,-150)
-    db.straight(427)
+    #=== Lower arm to do Reaching Roots ============================================
+    db.straight(430)
     wait(200)
     amBl.run_angle(500,80)
-    amBl.run_angle(500,-65)
+    amBl.run_angle(500,-55)
     amBl.run_angle(1800,170)
-    db.straight(-307)
+    #=== Extend roots on Reaching Roots ============================================
+    db.straight(-310)
     db.turn(55)
-    db.straight(325)
-    amBl.run_angle(500,-200)
+    db.straight(360)
+    #=== Lower arm to do Tangled ===================================================
+    amBl.run_angle(500,-150)
     db.turn(-55)
     db.straight(130)
     amBl.run_angle(1000,120)
+    #=== Lift the Vine off the Tree ================================================
     db.straight(-110)
     db.turn(45)
     db.straight(-800)
@@ -52,9 +57,9 @@ def run1_backup(prime_hub, dmA, dmE, db, amBl, amFr, csCl, csDr):
     amBl.run_angle(1800, 200)
     db.straight(-295)
     db.turn(55)
-    db.straight(383)
+    db.straight(390)
 #=== Lower arm to do Tangled ===================================================
-    amBl.run_angle(500, -180)
+    amBl.run_angle(500, -160)
     db.turn(-55)
     db.straight(85)
 #=== Lift the Vine off the Tree ================================================
